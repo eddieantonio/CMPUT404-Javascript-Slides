@@ -191,6 +191,72 @@ var someJS = "This works but isn't XHTML compatible";
 </section>
 <!-- ######################## END MARKDOWN SLIDE ########################## -->
 
+<!-- ######################## START MARKDOWN SLIDE ########################## -->
+<section>
+<div data-markdown>
+<script type="text/template">
+## Javascript Functions
+
+* Functions can return values
+* Functions can have parameters
+* Functions can access all available scope
+* Functions can access _this_
+
+````javascript
+// Function one with no parameters
+function one() {
+    return 1;
+}
+// A function with 1 param
+function f(x) { 
+    return 2*x; 
+}
+// How to call the function
+f(2) == 4.0;
+// Show on the console each click event
+// Unnamed function
+button.onclick = function(e) {
+    console.log(e);
+};
+````
+</script>
+</div>
+</section>
+<!-- ######################## END MARKDOWN SLIDE ########################## -->
+
+
+<!-- ######################## START MARKDOWN SLIDE ########################## -->
+<section>
+<div data-markdown>
+<script type="text/template">
+## Javascript Function Application
+
+* Functions can be assigned
+* Functions can be named
+* Functions can be called
+
+````javascript
+// Function creation and assignment
+var func = function(x) { return 2*x; }
+function one() { return 1; }
+var lonelyFunc = one; // function as value
+var lonelyValue = one(); // function applied
+(function(x){ return 3*x }); // a function
+(function(x){ return 3*x })(3); // the value 9
+(function(x){ return 3*x }).call({},3); // the value 9
+one.call(undefined); // the value 1 (the first value will be set to this
+func.call(undefined,8); // the value 16 (call takes parameters)
+func.apply(undefined,[8]); // the value 16 (apply takes a list)
+function thiser() { return this; } 
+thiser();//window?
+thiser.call(1); // 1!
+````
+</script>
+</div>
+</section>
+<!-- ######################## END MARKDOWN SLIDE ########################## -->
+
+
 
 <!-- ######################## START MARKDOWN SLIDE ########################## -->
 <section>
@@ -198,25 +264,24 @@ var someJS = "This works but isn't XHTML compatible";
 <script type="text/template">
 ## Javascript Scope
 
-* Scope: Lexicalish. 
+* Scope: Lexicalish Function Scope.
  * Javascript has a scope that feels lexical but really entire
    functions are a single block scope.
- * If statements and for loops do not create new scope
- * Variables are global by default unless they are pre-declared with var
+ * If statements and for loops do not create new scope.
+ * Variables are global by default unless they are pre-declared with var.
 
-````
-// here's a comment 
+````javascript
 /* here's a variable assignment */
 var variable = "A string value";
 function init() {
-    f = "Globally available don't do this!";
+f = "Globally available don't do this!"; // variable is visible
 }
 function testF() { 
-    return f; 
+    return f;  // variable and init are visible
 }
-function testVariable() {
-    var variable = "A local value!";
-    return variable;
+function testVariable() { //global variable was visible
+    var variable = "A local value!"; // init testF are visible
+    return variable; // variable is visible now. this is the local one!
 }
 init();
 ````
@@ -250,7 +315,7 @@ init();
 
 * Scope: Closures.
 
-````
+````javascript
 // Good style dictates all variables should be defined with var
 // this avoid confusion
 var variable = "A string value";
@@ -293,7 +358,7 @@ function lexical() {
 
 * Scope: Closures.
 
-````
+````javascript
 // Closures are functions who reference another scope
 // First we make a named function called makeCounter
 function makeCounter() {
@@ -344,7 +409,7 @@ myCounter();
  * function can be anonymous and take parameters as well
  * function( makes an anonymous function
 
-````
+````javacript
 function cpsAdd(val1, val2, continuation) {
     continuation(val1 + val2);
 }
@@ -387,7 +452,8 @@ function add1234(continuation) {
 * Functions and closures
  * returning functions can be quite useful
    * or confusing 
-````
+
+````javascript
   function cpsAddR(val1, val2) {
       return function(continuation) {
          continuation(val1 + val2);
