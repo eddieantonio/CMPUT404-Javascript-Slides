@@ -9,10 +9,14 @@ PORT = 8181
 run: serve open
 
 serve:
-	python -m SimpleHTTPServer $(PORT) &
-
+	@python -m SimpleHTTPServer $(PORT) & echo $$! > .server.pid
+	@echo Serving at http://localhost:$(PORT)/
 
 open:
 	$(BROWSER) http://localhost:$(PORT)/
+
+stop: .server.pid
+	kill $(shell cat $<)
+	@rm $<
 
 .PHONY: open serve run
