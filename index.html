@@ -26,8 +26,8 @@ document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.se
 
 <style>
 /* Button styles! */
-input[type="button"] {
-  font-size: 150%;
+input[type="button"], button {
+  font-size: 100%;
   border-radius: .25em;
   background-color: #ccc;
   background-image: linear-gradient(0deg, #ccc, #eee);
@@ -38,11 +38,11 @@ input[type="button"] {
   cursor: pointer;
 }
 
-input[type="button"][onclick] {
+input[type="button"][onclick], button[onclick] {
   font-family: monospace;
 }
 
-input[type="button"]:hover {
+input[type="button"]:hover, button:hover {
   background-color: #ddd;
   background-image: linear-gradient(0deg, #d5e0e5, #eee);
 }
@@ -87,16 +87,16 @@ input[type="button"]:hover {
 
 <!-- ######################## START MARKDOWN SLIDE ########################## -->
 <section>
-<div data-markdown>
+<h2> JavaScript Objects </h2>
+<div class="fragment" data-markdown>
 <script type="text/template">
-## JavaScript Objects
-
 Recall: The primary form of structuring data
 
 ```javascript
-var obj = {
-  property1: 'value',
-  property2: 'value',
+var myFerret = {
+  name: 'Ron Weasely', // (sic)
+  bodyLength: 51.5, // centimeters
+  cute: true,
 };
 ```
 </script>
@@ -104,51 +104,155 @@ var obj = {
 </section>
 <!-- ######################## END MARKDOWN SLIDE ########################## -->
 
+
 
 <!-- ######################## START MARKDOWN SLIDE ########################## -->
 <section>
 <div data-markdown>
 <script type="text/template">
-## Javascript Objects
+## Properties
 
- * JavaScript objects have _properties_:
+JavaScript objects have _properties_:
 
 ```javascript
-var obj = {
-  name1: 'value1',
-  name2: 'value2'
-}
-
-function gimmeProperty() {
-  // Access a property witth dot notation
-  alert(obj.name1);
-}
-function gimmePropertyWithBrackets() {
-  // Access a property with bracket notation
-  alert(obj['name1']);
-}
+var myFerret = {
+  name: 'Ron Weasely', // (sic)
+  bodyLength: 50, // centimeters
+  cute: true,
+};
 ```
 </script>
-<script>
-var obj = {
-  property1: 'value1',
-  property2: 'value2'
-}
+</div>
 
-function gimmeProperty() {
-  // Access a property witth dot notation
-  alert(obj.property1);
-}
-function gimmePropertyWithBrackets() {
-  // Access a property with bracket notation
-  alert(obj['property1']);
-}
+<div class="fragment">
+<div data-markdown>
+<script type="text/template">
+
+Adding properties:
+
+```javascript
+myFerret.species = 'Mustela putorius furo';
+myFerret.dietRestrictions = null;
+```
 </script>
 </div>
-<input type="button" value="alert(obj.property1)"
-       onclick="javascript:gimmeProperty();"/>
-<input type="button" value="alert(obj['property1'])"
-       onclick="javascript:gimmePropertyWithBrackets();"/>
+
+<script>
+function demoSetProp() {
+  var myFerret = {
+    name: 'Ron Weasely', // (sic)
+    bodyLength: 50, // centimeters
+    cute: true,
+  };
+  myFerret.species = 'Mustela putorius furo';
+  myFerret.dietRestrictions = null;
+  alert(JSON.stringify(myFerret, null, 4));
+}
+</script>
+
+<input type="button" value="alert(JSON.stringify(myFerret))"
+       onclick="javascript:demoSetProp()"/>
+</div>
+</section>
+<!-- ######################## END MARKDOWN SLIDE ########################## -->
+
+
+
+<!-- ######################## START MARKDOWN SLIDE ########################## -->
+<section>
+<div data-markdown>
+<script type="text/template">
+## Accessing properties
+
+```javascript
+var myFerret = {
+  name: 'Ron Weasely', // (sic)
+  bodyLength: 50, // centimeters
+  cute: true,
+};
+myFerret.species = 'Mustela putorius furo';
+myFerret.dietRestrictions = null;
+```
+</script>
+</div>
+
+<script>
+function demoGetPropDot() {
+  var myFerret = {
+    name: 'Ron Weasely', // (sic)
+    bodyLength: 50, // centimeters
+    cute: true,
+  };
+  myFerret.species = 'Mustela putorius furo';
+  myFerret.dietRestrictions = null;
+  alert(myFerret.name);
+}
+function demoGetPropBrackets() {
+  var myFerret = {
+    name: 'Ron Weasely', // (sic)
+    bodyLength: 50, // centimeters
+    cute: true,
+  };
+  myFerret.species = 'Mustela putorius furo';
+  myFerret.dietRestrictions = null;
+  alert(myFerret['name']);
+}
+</script>
+
+<div>
+<button onclick="javascript:demoGetPropBrackets()">alert(myFerret['name'])</button>
+<button onclick="javascript:demoGetPropDot()">alert(myFerret.name)</button>
+</div>
+</section>
+<!-- ######################## END MARKDOWN SLIDE ########################## -->
+
+
+
+<!-- ######################## START MARKDOWN SLIDE ########################## -->
+<section>
+<div data-markdown>
+<script type="text/template">
+## But some properties are not as obvious
+
+```javascript
+var myFerret = {
+  name: 'Ron Weasely', // (sic)
+  bodyLength: 50, // centimeters
+  cute: true,
+  species: 'Mustela putorius furo',
+  dietRestrictions: null
+};
+```
+</script>
+</div>
+
+<script>
+function demoToStringBrackets() {
+  var myFerret = {
+    name: 'Ron Weasely', // (sic)
+    bodyLength: 50, // centimeters
+    cute: true,
+    species: 'Mustela putorius furo',
+    dietRestrictions: null
+  };
+  alert(myFerret['toString']);
+}
+function demoToStringDot() {
+  var myFerret = {
+    name: 'Ron Weasely', // (sic)
+    bodyLength: 50, // centimeters
+    cute: true,
+    species: 'Mustela putorius furo',
+    dietRestrictions: null
+  };
+  alert(myFerret.toString);
+}
+</script>
+
+<div>
+<button onclick="javascript:demoToStringDot()">alert(myFerret.toString)</button>
+<button onclick="javascript:demoToStringBrackets()">alert(myFerret['toString'])</button>
+</div>
 </section>
 <!-- ######################## END MARKDOWN SLIDE ########################## -->
 
@@ -575,9 +679,8 @@ Copyright 2016 (C) Eddie Antonio Santos
 
 Copyright 2014 (C) Abram Hindle
 
-The textual components of this slide deck are placed under the
-Creative Commons Attribute-ShareAlike 4.0 International License (CC
-BY-SA 4.0)
+The textual components of this slide deck are placed under the Creative
+Commons Attribute-ShareAlike 4.0 International License (CC BY-SA 4.0)
 
 </script>
 </div>
