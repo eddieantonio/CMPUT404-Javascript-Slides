@@ -269,7 +269,7 @@ var myOtherFerret = {
   bodyLength: 52, // centimeters
   cute: true,
   species: 'Mustela putorius furo',
-  dietRestrictions: ['Cheese'],
+  dietRestrictions: ['Jamaican Rice Rat'],
 };
 ```
 </script>
@@ -282,7 +282,7 @@ function demoToStringBrackets() {
     bodyLength: 52, // centimeters
     cute: true,
     species: 'Mustela putorius furo',
-    dietRestrictions: ['Cheese'],
+    dietRestrictions: ['Jamaican Rice Rat'],
   };
   alert(myOtherFerret['toString']());
 }
@@ -292,7 +292,7 @@ function demoToStringDot() {
     bodyLength: 52, // centimeters
     cute: true,
     species: 'Mustela putorius furo',
-    dietRestrictions: ['Cheese'],
+    dietRestrictions: ['Jamaican Rice Rat'],
   };
   alert(myOtherFerret.toString());
 }
@@ -328,8 +328,7 @@ function demoToStringDot() {
 
 <div class="fragment" data-markdown>
 <script type="text/template">
- * Allow you to **share** properties with other objects
- * Objects share properties with `Object.prototype` by default
+Allow you to **share** properties with other objects
 </script>
 </div>
 </section>
@@ -343,7 +342,7 @@ function demoToStringDot() {
 <script type="text/template">
 ## Prototypes!
 
-The ferret prototype chain:
+The prototype chain:
 
 ![The Prototype Chain](./images/prototype-chain.svg)
 
@@ -353,17 +352,180 @@ The ferret prototype chain:
 </section>
 <!-- ######################## END MARKDOWN SLIDE ########################## -->
 
-<!--
-  Constructors allow you to *set-up* objects. The object being set-up can
-  be referenced as `this`. You can set-up any properties you want this way.
--->
+<!-- ######################## START MARKDOWN SLIDE ########################## -->
+<section>
+<div data-markdown>
+<script type="text/template">
+## `Object.prototype`
 
+ * Shared with everything by default
+ * You probably don't want to mess with this
+
+</script>
+</div>
+</section>
+<!-- ######################## END MARKDOWN SLIDE ########################## -->
+
+<!-- ######################## START MARKDOWN SLIDE ########################## -->
+<section>
+<div data-markdown>
+<script type="text/template">
+## What if I want to share properties with only my Ferrets?
+</script>
+</div>
+</section>
+<!-- ######################## END MARKDOWN SLIDE ########################## -->
+
+
+
+<!-- ######################## START MARKDOWN SLIDE ########################## -->
+<section>
+<div data-markdown>
+<script type="text/template">
+## Constructors!
+
+ * Just an ordinary function!
+ * Call it with `new` when creating objects
+ * Allows you to **set up** objects
+ * Implicitly creates a prototype
+
+</script>
+</div>
 <!--
   Prototypes allow you to **share** properties among a lot of objects!
 
   Objects that share properties are said to **inherit** it, from their
   prototype.
 -->
+</section>
+<!-- ######################## END MARKDOWN SLIDE ########################## -->
+
+
+
+<!-- ######################## START MARKDOWN SLIDE ########################## -->
+<section>
+<div data-markdown>
+<script type="text/template">
+
+## Defining the `Ferret` constructor
+
+```javascript
+function Ferret(name, bodyLength) {
+  this.name = name;
+  this.bodyLength = bodyLength;
+
+  /* These are the defaults */
+  this.species = 'Mustela putorius furo';
+  this.cute = true;
+  this.dietRestructions = null;
+}
+```
+</script>
+</div>
+
+<!--
+  Constructors allow you to *set-up* objects. The object being set-up can
+  be referenced as `this`. You can set-up any properties you want this way.
+
+  You can refer to the object you're setting up with the `this` keyword.
+-->
+
+<div class="fragment">
+<div data-markdown>
+<script type="text/template">
+Using the `Ferret` constructor:
+
+```
+var myFerret = new Ferret('Ron Weasely', 50);
+var myOtherFerret = new Ferret('Ferret Fawcett', 52);
+```
+</script>
+</div>
+
+<script>
+function Ferret(name, bodyLength) {
+  this.name = name;
+  this.bodyLength = bodyLength;
+
+  /* These are the defaults */
+  this.species = 'Mustela putorius furo';
+  this.cute = true;
+  this.dietRestructions = null;
+}
+
+function showMeRon() {
+  var myFerret = new Ferret('Ron Weasely', 50);
+  alert(JSON.stringify(myFerret, null, 4));
+}
+function showMeFerrah() {
+  var myOtherFerret = new Ferret('Ferret Fawcett', 52);
+  alert(JSON.stringify(myOtherFerret, null, 4));
+}
+</script>
+
+<Button onclick="javascript:showMeRon()">alert(JSON.stringify(myFerret))</Button>
+<Button onclick="javascript:showMeFerrah()">alert(JSON.stringify(myOtherFerret))</Button>
+</div>
+</section>
+<!-- ######################## END MARKDOWN SLIDE ########################## -->
+
+
+
+<section>
+<div data-markdown>
+<script type="text/template">
+## Share properties amongst `Ferret` objects
+
+ * every function has a `prototype` object
+ * any thing you want to share, just add it here!
+
+```javascript
+Ferret.prototype.toString = function toString() {
+  return "My name is " + this.name + "!";
+}
+
+Ferret.prototype.showCuteness = function toString() {
+  if (this.cute) {
+    return this.name + ' is Super cute';
+  } else {
+    return this.name + ' could be cuter';
+  }
+}
+```
+</script>
+</div>
+
+<!-- TODO: split into two slides -->
+
+<script>
+Ferret.prototype.toString = function toString() {
+  return "My name is " + this.name + "!";
+}
+
+Ferret.prototype.showCuteness = function toString() {
+  if (this.cute) {
+    return this.name + ' is super cute';
+  } else {
+    return this.name + ' could be cuter';
+  }
+}
+
+// Maybe reiterate the ferrets?
+
+function showToString() {
+  var myFerret = new Ferret('Ron Weasely', 50);
+  var myOtherFerret = new Ferret('Ferret Fawcett', 52);
+  alert(myFerret.toString());
+}
+function showCuteness() {
+  var myFerret = new Ferret('Ron Weasely', 50);
+  var myOtherFerret = new Ferret('Ferret Fawcett', 52);
+  alert(myFerret.showCuteness());
+}
+</script>
+
+<Button onclick="javascript:showToString()">alert(myFerret.toString())</Button>
+<Button onclick="javascript:showCuteness()">alert(myFerret.showCuteness())</Button>
 
 <!--
   The constructor has a property, aptly called `prototype`.  The prototype is
@@ -374,6 +536,22 @@ The ferret prototype chain:
     alert('hello ' + this.name);
   };
 -->
+</section>
+
+
+
+<!-- ######################## START MARKDOWN SLIDE ########################## -->
+<section>
+<div data-markdown>
+<script type="text/template">
+## The `Ferret` prototype chain
+
+![The Prototype Chain](./images/prototype-chain.svg)
+
+<small>(Derived from the [ECMAScript 5 Standard](http://www.ecma-international.org/ecma-262/5.1/#sec-4.2.1))</small>
+</script>
+</div>
+</section>
 
 <!--
   Objects created using:
