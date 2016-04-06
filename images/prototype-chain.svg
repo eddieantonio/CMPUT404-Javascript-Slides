@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:xhtml="http://www.w3.org/1999/xhtml"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="719"
+   height="354"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="prototype-chain.svg">
+  <metadata
+     id="metadata88">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1047"
+     inkscape:window-height="588"
+     id="namedview86"
+     showgrid="false"
+     inkscape:zoom="0.80446919"
+     inkscape:cx="423.21686"
+     inkscape:cy="210.48358"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2" />
+  <style
+     type="text/css"
+     id="style4">
+    rect.box {
+        fill: white;
+        stroke: black;
+        stroke-width: 1px;
+    }
+    path.a {
+        fill: none;
+        stroke: black;
+        stroke-width: 2px;
+        marker-end: url(#arrowhead);
+    }
+    path.d { stroke-dasharray: 2,2; }
+    text { font-family: Helvetica, Arial, Liberation Sans, sans-serif; }
+    text.pn { font-family: &quot;Courier New&quot;, monospace; }
+    text.on { font-weight: bold; }
+    text.ons { font-weight: bold; font-size: 60%; }
+  </style>
+  <defs
+     id="defs6">
+    <marker
+       id="arrowhead"
+       viewBox="0 0 15 10"
+       refX="0"
+       refY="5"
+       markerUnits="userSpaceOnUse"
+       markerWidth="9"
+       markerHeight="6"
+       orient="auto">
+      <path
+         d="M 0 0 L 15 5 L 0 10 z"
+         id="path9" />
+    </marker>
+    <g
+       id="instance"
+       width="50"
+       height="101">
+      <rect
+         class="box"
+         x="0.5"
+         y="0.5"
+         width="95"
+         height="100"
+         id="rect12"
+         style="fill:#ffffff;stroke:#000000;stroke-width:1px" />
+      <text
+         class="pn"
+         x="14"
+         y="56"
+         id="text14">name</text>
+      <text
+         class="pn"
+         x="14"
+         y="79"
+         id="text16">species</text>
+      <text
+         class="on"
+         x="10"
+         y="22"
+         id="text18"></text>
+    </g>
+  </defs>
+  <g
+     font-size="14.5"
+     id="g20">
+    <rect
+       class="box"
+       x="0.5"
+       y="0.5"
+       width="718"
+       height="353"
+       id="rect22" />
+    <!-- legend -->
+    <path
+       class="a d"
+       d="M 457,25 616,25"
+       id="path24" />
+    <text
+       x="470"
+       y="51"
+       font-size="13.5"
+       id="text26">implicit prototype link</text>
+    <path
+       class="a s"
+       d="M 456,80 616,80"
+       id="path28" />
+    <text
+       x="469"
+       y="106"
+       font-size="12.5"
+       id="text30">explicit prototype property</text>
+    <!-- CF -->
+    <rect
+       class="box"
+       x="80.5"
+       y="25.5"
+       width="144"
+       height="69.857506"
+       id="rect32"
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.77270478px" />
+    <text
+       x="89"
+       y="57"
+       font-weight="bold"
+       id="text34"
+       style="font-weight:bold;font-family:Helvetica Neue, Helvetica, Arial, Liberation Sans, sans-serif">Object</text>
+    <path
+       class="a d"
+       d="M 80,37 42,37 42,23"
+       id="path36" />
+    <text
+       class="pn"
+       x="95"
+       y="75"
+       id="text38">prototype</text>
+    <path
+       class="a s"
+       d="M 175,70 260,70"
+       id="path44" />
+    <!-- CFp -->
+    <rect
+       class="box"
+       x="268.5"
+       y="59.5"
+       width="98.33741"
+       height="88"
+       id="rect46"
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.99999994px" />
+    <path
+       class="a d"
+       d="m 368.65587,81 32,0 0,-58"
+       id="path48"
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#000000;stroke-width:2px;stroke-dasharray:2, 2;marker-end:url(#arrowhead)" />
+    <text
+       class="on"
+       x="283"
+       y="79"
+       id="text50"
+       style="font-weight:bold;font-family:Helvetica, Arial, Liberation Sans, sans-serif">Object</text>
+    <text
+       class="ons"
+       x="329.49023"
+       y="81"
+       id="text52"
+       style="font-size:60.00061035%;font-weight:bold;font-family:Helvetica, Arial, Liberation Sans, sans-serif">p</text>
+    <text
+       class="pn"
+       x="287"
+       y="113"
+       id="text54"
+       style="font-family:&quot;Courier New&quot;, monospace">toString</text>
+    <!-- instances -->
+    <use
+       xlink:href="#instance"
+       x="79"
+       y="240"
+       id="use56"
+       transform="translate(146.78851,0)"
+       width="719"
+       height="354" />
+    <path
+       class="a d"
+       d="m 226.66748,249 -23.45232,0 0,-55 66.78484,0 0,-39"
+       id="path60"
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#000000;stroke-width:2px;stroke-dasharray:2, 2;marker-end:url(#arrowhead)"
+       sodipodi:nodetypes="ccccc" />
+    <use
+       xlink:href="#instance"
+       x="502"
+       y="240"
+       id="use80"
+       transform="translate(-167.00489,0)"
+       width="719"
+       height="354" />
+    <path
+       class="a d"
+       d="m 431.70171,251 16.3313,0 0,-54 L 346,197 l 0,-42"
+       id="path84"
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#000000;stroke-width:2px;stroke-dasharray:2, 2;marker-end:url(#arrowhead)"
+       sodipodi:nodetypes="ccccc" />
+    <text
+       style="font-family:&quot;Courier New&quot;, monospace"
+       id="text3103"
+       y="132.3374"
+       x="287"
+       class="pn">valueOf</text>
+    <text
+       style="font-size:9.71470356px;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:&quot;Courier New&quot;, monospace"
+       id="text3105"
+       y="12.19174"
+       x="400.30997"
+       class="pn"
+       sodipodi:linespacing="125%">null</text>
+  </g>
+  <xhtml:div />
+  <text
+     xml:space="preserve"
+     style="font-size:18px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+     x="239.08069"
+     y="271.37653"
+     id="text3013"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3015"
+       x="239.08069"
+       y="271.37653">Weasely</tspan></text>
+  <text
+     sodipodi:linespacing="125%"
+     id="text3017"
+     y="271.37653"
+     x="348.95233"
+     style="font-size:18px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+     xml:space="preserve"><tspan
+       y="271.37653"
+       x="348.95233"
+       id="tspan3019"
+       sodipodi:role="line">Fawcett</tspan></text>
+</svg>
