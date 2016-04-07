@@ -442,6 +442,20 @@ var myOtherFerret = new Ferret('Ferret Fawcett', 52);
 </script>
 </div>
 
+<!--
+  Objects created using:
+
+    new Constructor()
+
+  are given the prototype. Constructor.prototype
+
+  That is, you can share properties among all objects created using
+  new Constructor().
+
+  (Repeat this for three different constructors).
+
+-->
+
 <script>
 function Ferret(name, bodyLength) {
   this.name = name;
@@ -480,6 +494,52 @@ function showMeFerrah() {
  * any thing you want to share, just add it here!
 
 ```javascript
+function Ferret(name, bodyLength) {
+   // ...
+}
+
+Ferret.prototype // this is just an object!
+```
+</script>
+</div>
+
+<script>
+// Avoids a name clash.
+function _Ferret() {
+}
+
+function showPrototypeObject() {
+  alert(JSON.stringify(_Ferret.prototype, null, 4));
+}
+function showEquivillence() {
+  alert(Object.getPrototypeOf(Ferret.prototype) === Object.getPrototypeOf({}));
+}
+</script>
+
+<Button onclick="javascript:showPrototypeObject()">alert(JSON.stringify(Ferret.prototype))</Button>
+<Button class="fragment"
+	onclick="javascript:showEquivillence()">
+  alert(Object.getPrototypeOf(Ferret.prototype) === Object.getPrototypeOf({}))
+</Button>
+
+<!--
+  More often than not the properties we share among multiple objects are
+  functions.  Functions shared on prototypes are called in *methods*.
+-->
+
+</section>
+<!-- ######################## END MARKDOWN SLIDE ########################## -->
+
+
+
+<section>
+<div data-markdown>
+<script type="text/template">
+## Sharing methods with all `Ferret` objects
+
+```javascript
+var myFerret = new Ferret('Ron Weasely', 50);
+
 Ferret.prototype.toString = function toString() {
   return "My name is " + this.name + "!";
 }
@@ -495,9 +555,18 @@ Ferret.prototype.showCuteness = function toString() {
 </script>
 </div>
 
-<!-- TODO: split into two slides -->
-
 <script>
+// Avoid namespace clashing...
+function Ferret(name, bodyLength) {
+  this.name = name;
+  this.bodyLength = bodyLength;
+
+  /* These are the defaults */
+  this.species = 'Mustela putorius furo';
+  this.cute = true;
+  this.dietRestructions = null;
+}
+
 Ferret.prototype.toString = function toString() {
   return "My name is " + this.name + "!";
 }
@@ -514,12 +583,10 @@ Ferret.prototype.showCuteness = function toString() {
 
 function showToString() {
   var myFerret = new Ferret('Ron Weasely', 50);
-  var myOtherFerret = new Ferret('Ferret Fawcett', 52);
   alert(myFerret.toString());
 }
 function showCuteness() {
   var myFerret = new Ferret('Ron Weasely', 50);
-  var myOtherFerret = new Ferret('Ferret Fawcett', 52);
   alert(myFerret.showCuteness());
 }
 </script>
@@ -537,6 +604,7 @@ function showCuteness() {
   };
 -->
 </section>
+<!-- ######################## END MARKDOWN SLIDE ########################## -->
 
 
 
@@ -551,35 +619,6 @@ function showCuteness() {
 <small>(Derived from the [ECMAScript 5 Standard](http://www.ecma-international.org/ecma-262/5.1/#sec-4.2.1))</small>
 </script>
 </div>
-</section>
-
-<!--
-  Objects created using:
-
-    new Constructor()
-
-  are given the prototype. Constructor.prototype
-
-  That is, you can share properties among all objects created using
-  new Constructor().
-
-  (Repeat this for three different constructors).
-
--->
-
-<!--
-  Most often the properties we share among multiple objects are functions.
-  Functions shared on prototypes are called in *methods*.
--->
-
-<!--
-  Note that in JavaScript, Functions are (strong, independent computational
-  abstractions who don't need no man). We often share these functions on the
-  prototype chain.
-
-  (Use Sassy Fran).
--->
-
 <!--
 
   However, an object may not inherit properties from just one prototype
@@ -632,6 +671,53 @@ function showCuteness() {
     }
 
 -->
+</section>
+<!-- ######################## END MARKDOWN SLIDE ########################## -->
+
+
+
+<!-- ######################## START MARKDOWN SLIDE ########################## -->
+<section>
+<div data-markdown>
+<script type="text/template">
+## A caveat apropos methods in JavaScript
+
+ * In JavaScript, no object "owns" a function
+ * A method does not soley act on members of its prototype
+ * `this` is set dynamically
+
+</script>
+</div>
+<!--
+  Note that in JavaScript, Functions are (strong, independent computational
+  abstractions who don't need no man). We often share these functions on the
+  prototype chain.
+-->
+</section>
+<!-- ######################## END MARKDOWN SLIDE ########################## -->
+
+
+
+<!-- ######################## START MARKDOWN SLIDE ########################## -->
+<section>
+<div data-markdown>
+<script type="text/template">
+## Further topics
+
+ * Prototypical inheritance
+ * `Object.defineProperty()`
+    - enumerable properties
+    - accessor properties
+ * `Function.prototype.bind()`
+
+</script>
+</div>
+</section>
+<!-- ######################## END MARKDOWN SLIDE ########################## -->
+
+
+
+
 
 <!-- ######################## START MARKDOWN SLIDE ########################## -->
 <section>
